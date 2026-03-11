@@ -1,0 +1,12 @@
+{
+  "name": "andikis2009-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "techno-dom",
+    "backend"
+  ],
+  "devDependencies": {
+    "pnpm": "^8"
+  }
+}
