@@ -12,7 +12,7 @@ importers:
         specifier: ^8
         version: 8.15.9
 
-  backend:
+  packages/backend:
     dependencies:
       '@prisma/client':
         specifier: ^5.22.0
@@ -79,7 +79,7 @@ importers:
         specifier: ^5.7.2
         version: 5.9.3
 
-  techno-dom:
+  packages/techno-dom:
     dependencies:
       '@base-ui/react':
         specifier: ^1.2.0
