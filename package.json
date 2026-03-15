@@ -3,9 +3,22 @@
   "private": true,
   "version": "1.0.0",
   "workspaces": [
-    "techno-dom",
-    "backend"
+    "packages/*"
   ],
+  "packageManager": "pnpm@10",
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "sharp",
+      "unrs-resolver"
+    ]
+  },
+  "scripts": {
+    "bootstrap": "pnpm install",
+    "build": "pnpm -w -r run build",
+    "dev": "pnpm -w -r run dev",
+    "start": "pnpm -w -r run start",
+    "lint": "pnpm -w -r run lint"
+  },
   "devDependencies": {
     "pnpm": "^8"
   }

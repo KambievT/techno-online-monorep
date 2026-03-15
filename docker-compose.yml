@@ -1,24 +1,30 @@
 version: "3.8"
+
 services:
   backend:
     build:
       context: .
-      dockerfile: backend/Dockerfile
+      dockerfile: packages/backend/Dockerfile
     container_name: technodom-backend
     restart: always
+    env_file:
+      - packages/backend/.env
     environment:
       - PORT=4000
       - NODE_ENV=production
-      # Add other env vars (DATABASE_URL, MINIO_*) via TimeWeb secrets or .env
+      - MINIO_ENDPOINT=minio
+      - MINIO_PORT=9000
     ports:
       - "4000:4000"
+    depends_on:
+      - minio
     networks:
       - technet
 
   frontend:
     build:
-      context: ./techno-dom
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: packages/techno-dom/Dockerfile
     container_name: technodom-frontend
     restart: always
     environment:
@@ -31,10 +37,25 @@ services:
     networks:
       - technet
 
+  minio:
+    image: minio/minio
+    container_name: technodom-minio
+    restart: always
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    networks:
+      - technet
+
 networks:
   technet:
     driver: bridge
 
-# Notes:
-# - Frontend is published on host port 80. Backend on 4000.
-# - TimeWeb Cloud: add secrets/env in their dashboard rather than hard-coding in this file.
+volumes:
+  minio_data:
