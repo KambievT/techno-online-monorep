@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": "e38f7483-1176-4cf9-ac27-a4abec90b06c",
+      "name": "Model X",
+      "price": 1000,
+      "categoryId": "9f06b0ef-2174-4782-b6b4-22e0b9e2a367",
+      "filterIds": [],
+      "createdAt": "2026-03-16T13:33:28.288Z",
+      "updatedAt": "2026-03-16T13:33:28.288Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "9f06b0ef-2174-4782-b6b4-22e0b9e2a367",
+      "name": "Laptops",
+      "createdAt": "2026-03-16T13:33:28.194Z",
+      "updatedAt": "2026-03-16T13:33:28.194Z"
+    }
+  ],
+  "filters": [],
+  "storeAddresses": [],
+  "minioFiles": []
+}
